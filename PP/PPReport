@@ -1,0 +1,26 @@
+# Portfolio Report
+
+## 1. ORM Choice
+
+I chose to go with the Object-Relational Mapping (ORM) approach, specifically SQLAlchemy. The main reason for this choice was to abstract away some of the complexities associated with raw SQL.
+
+## 2. API Endpoints
+
+The following endpoints have been created for the project:
+
+- `GET /api/v1/resources`: This endpoint is used to fetch a list of all the resources.
+- `POST /api/v1/resources`: This endpoint creates a new resource. The data for the new resource is provided in the request body.
+- `PUT /api/v1/resources/<int:id>`: This endpoint updates a resource identified by the id. The updated data is provided in the request body.
+
+## 3. Future Endpoints
+
+Some potential endpoints I might implement in the future include:
+
+- `GET /api/v1/resources/top`: This could return the top-rated or most accessed resources.
+
+## 4. Challenges and Learnings
+
+From the challenges faced during the development:
+
+- I learned how important it is to set up robust error handling in a Flask application.
+- I learned a lot about data modeling and the importance of carefully considering how the different entities in an application relate to each other.

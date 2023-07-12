@@ -1,0 +1,64 @@
+## Brainstorming notes and ideas:
+
+### Entities (Tables):
+- Department
+- Employee 
+- Assignment
+- Project
+
+### Relationships:
+- Each Department has many Employees.
+- Each Employee is assigned to one Department.
+- Each Employee can be associated with many Projects through Assignments.
+- Each Project can have many Employees working on it, also through Assignments.
+
+## Questions:
+1. Do we need a mechanism to track the status of a project (e.g., active, completed, on hold)?
+2. Could an employee be part of more than one department?
+3. The current schema doesn't provide a way to track roles within a project. Is that something we need to consider?
+4. We currently track the hours_worked in the Assignment table. Do we need more granular time tracking, like on a daily or weekly basis?
+5. It might be helpful to have a table that tracks the history of an employee's department assignments over time. Would this be useful?
+
+## Tables
+
+### assignment
+
+- `assignment_id` (integer) - The primary key.
+- `employee_id` (integer) - References the `employee` table.
+- `project_id` (integer) - References the `project` table.
+- `hours_worked` (integer)
+
+### department
+
+- `department_id` (integer) - The primary key.
+- `name` (character varying)
+- `location` (character varying)
+
+### employee
+
+- `employee_id` (integer) - The primary key.
+- `name` (character varying)
+- `position` (character varying)
+- `salary` (numeric)
+- `department_id` (integer) - References the `department` table.
+
+### project
+
+- `project_id` (integer) - The primary key.
+- `name` (character varying)
+- `start_date` (date)
+- `end_date` (date)
+
+## Foreign Key References
+
+### One-to-Many
+
+- From `department` to `employee` through `department_id`: One department can have many employees.
+
+### Many-to-One
+
+- From `employee` to `department` through `department_id`: Many employees can belong to one department.
+
+### Many-to-Many
+
+- Between `employee` and `project` through `assignment`: An employee can work on many projects, and a project can have many employees.

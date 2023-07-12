@@ -1,0 +1,28 @@
+## Correctness:
+
+There aren't any noticeable issues with the schema definitions that would result in incorrect data. 
+
+## Speed:
+
+Indexes are only created on primary key columns.
+
+## Memory Usage:
+
+The data types seem appropriate for each column. There are no large chunks of text.
+
+## Additional Questions:
+
+### Are the column data types suitable?
+
+The column data types seem suitable. They are selected based on the nature of the data to be stored.
+
+### Can the queries be simplified?
+
+The complexity of the queries depends on application requirements.
+
+### Which columns are worth indexing?
+
+If there are columns which are frequently used in WHERE clauses of SQL queries or to join tables - those should be indexed e.g.
+
+- `employee.department_id` - if queries often need to filter or join on the department of employees
+- `assignment.employee_id` and `assignment.project_id` - if there are frequent queries accessing assignments based on the employee or project
